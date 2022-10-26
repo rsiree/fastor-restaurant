@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import {getOtp} from "../Redux/Auth/action";
 import { OTP_SUCC } from '../Redux/Auth/actionTypes';
 
-export const LoginPage = () => {
+export const Otp = () => {
 
     const [mobileNo,setMobileNo]=useState("");
     const [errMsg,setErrMsg]=useState("");
@@ -49,8 +49,8 @@ export const LoginPage = () => {
         padding={'15% 10%'}
         >
           <FormControl >
-            <FormLabel fontSize='36px' >Enter Your Mobile Number</FormLabel>
-            <FormLabel color='gray'>We will send you 4 digit verification code</FormLabel>
+            <FormLabel fontSize='36px' >OTP Verification</FormLabel>
+            <FormLabel color='gray'>Enter the verification code we just send on your Mobile Number</FormLabel>
             <br/>
 
             <Input  
@@ -68,9 +68,24 @@ export const LoginPage = () => {
             w='400px'
             onClick={handleSubmit}
             >
-               {load?"Sending":"Send Code"} 
+               {load?"Verifying":"Verify"} 
             </Button>
-            
+
+            <FormLabel
+                fontSize='14px' 
+                paddingLeft='10%'
+            >
+                Didn't receive code? 
+             <Button 
+             fontSize='14px' 
+             variant="link" 
+             colorScheme='blue'
+             paddingLeft='2%'
+             >
+                Resend
+            </Button>
+            </FormLabel>
+
           </FormControl>
         </Box>
         

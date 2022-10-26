@@ -3,7 +3,9 @@ import React from 'react'
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
+import { Navigate } from 'react-router';
 import { Card } from '../Components/Card';
+import Carousel from '../Components/Caurosel';
 import { Navbar } from '../Components/Navbar';
 import { getData } from '../Redux/App/action';
 
@@ -23,6 +25,10 @@ export const Restaurant = () => {
         console.log(restaurantData,"data")
     },[restaurantData,token]);
 
+    if(!token){
+        return <Navigate to="/"/>
+    }
+    
   return (
     <Box
     w='100%'
@@ -32,7 +38,7 @@ export const Restaurant = () => {
      
      <Navbar/>
 
-     <Box p='2%' m='auto'>
+     <Box p='2%' m='auto' w='70%' >
         <HStack gap='20%' flexBasis={'100px'}>
 
             <VStack 
@@ -59,8 +65,15 @@ export const Restaurant = () => {
 
 
       
-     
+       <Box p='2%'>
+        <Text fontSize={'2xl'} textAlign='left'>Your taste</Text>
+        <Box>
 
+        </Box>
+       </Box>
+
+
+<Carousel/>
 
         <Flex 
         direction={'column'}

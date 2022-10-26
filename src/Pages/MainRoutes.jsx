@@ -4,6 +4,7 @@ import { PrivateAuth } from '../Components/PrivateAuth'
 import { LoginPage } from './LoginPage'
 import { Otp } from './Otp'
 import { Restaurant } from './Restaurant'
+import { SingleData } from './SingleData'
 
 export const MainRoutes = () => {
   return (
@@ -15,6 +16,7 @@ export const MainRoutes = () => {
                 <Restaurant/>
             </PrivateAuth>
         }/>
+        <Route path="/restaurant/:restaurant_id" element={<SingleData/>}/>
     </Routes>
   )
 }

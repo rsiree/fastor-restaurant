@@ -1,7 +1,15 @@
 import { Box, HStack, Image, Text, VStack } from '@chakra-ui/react'
 import React from 'react'
+import {  useNavigate } from 'react-router-dom'
 
 export const Card = ({item}) => {
+
+   const navigate=useNavigate()
+
+    const shareData=()=>{
+        navigate(`/restaurant/${item.restaurant_id}`);
+    }
+
   return (
     <Box 
     // border='1px solid lightgray'
@@ -9,7 +17,9 @@ export const Card = ({item}) => {
     borderRadius='10px'
     marginBottom='1%'
     p='2%'
+    backgroundColor={'whiteAlpha.600'}
     boxShadow= "rgba(99, 99, 99, 0.4) 0px 2px 8px 0px"
+    onClick={shareData}
     >
       <HStack>
         <Box >

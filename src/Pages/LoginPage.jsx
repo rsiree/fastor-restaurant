@@ -26,7 +26,7 @@ export const LoginPage = () => {
         .then((res)=>{
             if(res.type===OTP_SUCC){
                 alert("otp sent");
-                navigate("/otp",{replace:true})
+                navigate("/otp")
             }
         })
 
@@ -50,7 +50,7 @@ export const LoginPage = () => {
         >
           <FormControl >
             <FormLabel fontSize='36px' >Enter Your Mobile Number</FormLabel>
-            <FormLabel color='gray'>We will send you 4 digit verification code</FormLabel>
+            <FormLabel color='gray' fontSize='16px'>We will send you 4 digit verification code</FormLabel>
             <br/>
 
             <Input  

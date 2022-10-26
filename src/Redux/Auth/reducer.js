@@ -1,8 +1,10 @@
 import * as types from "./actionTypes";
 
+
+
 const initState={
     isAuth:false,
-    token:"",
+    token:localStorage.getItem("token")||"",
     load:false,
     error:false,
     data:"",
@@ -44,7 +46,8 @@ export const authReducer=(state=initState,{type,payload})=>{
             }
         };
         case types.LOGIN_SUCC:{
-            console.log(payload)
+            console.log(payload,"token reducer");
+            localStorage.setItem("token",payload);
             return {
                 ...state,
                 load:false,

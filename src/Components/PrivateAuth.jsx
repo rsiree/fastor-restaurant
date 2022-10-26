@@ -1,16 +1,15 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { Navigate } from 'react-router-dom';
+import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 
 export const PrivateAuth = ({children}) => {
-    const {isAuth}=useSelector(state=>state.authReducer);
-
+    const {isAuth,token}=useSelector(state=>state.authReducer);
+    console.log("hi",token,isAuth)
+   
    if(!isAuth){
-      <Navigate to="/"/>
+      <Navigate to="/" replace={true}/>
    } 
 
-  return (
-    children
-  )
+  return children;
 
 }
